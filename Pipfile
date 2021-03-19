@@ -7,6 +7,7 @@ name = "pypi"
 pytest = "*"
 django = "==3.0.8"
 django-cors-headers = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
