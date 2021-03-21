@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken', # Custom Sign Up Created
     'api',
     'api.category',
-    'api.product'
 ]
 
 MIDDLEWARE = [
