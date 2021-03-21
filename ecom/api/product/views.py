@@ -1,4 +1,4 @@
-from django.shortcuts import viewsets
+from rest_framework import viewsets
 
 # Create your views here.
 from .serializers import ProductSerializer
