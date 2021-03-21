@@ -9,6 +9,7 @@ django = "==3.0.8"
 django-cors-headers = "*"
 djangorestframework = "*"
 psycopg2 = "*"
+pillow = "*"
 
 [dev-packages]
 
