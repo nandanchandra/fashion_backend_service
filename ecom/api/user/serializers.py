@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import make_password
 from rest_framework.decorators import authentication_classes,permission_classes
 
 
-from .models import CustomeUser
+from .models import CustomUser
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 
@@ -30,7 +30,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
     class Meta:
-        model = CustomeUser
-        extra_kwargs={'passwprd':{'write_only':True}} 
+        model = CustomUser
+        extra_kwargs={'password':{'write_only':True}} 
         fields =('name','email','password','phone','gender','is_active','is_staff','is_superuser')
 

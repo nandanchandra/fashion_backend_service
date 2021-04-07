@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from .serializers import UserSerializer
-from .models import CustomeUser
+from .models import CustomUser
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
@@ -85,14 +85,14 @@ def signout(request,id):
 # Standarizations
 
 class UserViewSet(viewsets.ModelViewSet):
-    permission_classes_by_action={'create':[AllowAny]}
+    permission_classes_by_action = {'create': [AllowAny]}
 
-    queryset=CustomeUser.objects.all().order_by('id')
-    serializer_class= UserSerializer
+    queryset = CustomUser.objects.all().order_by('id')
+    serializer_class = UserSerializer
 
-    def get_permission(self):
+    def get_permissions(self):
         try:
             return [permission() for permission in self.permission_classes_by_action[self.action]]
-            
-        except KeyError :
+
+        except KeyError:
             return [permission() for permission in self.permission_classes]
