@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'rest_framework.authtoken', # Custom Sign Up Created
     'api',
     'api.category',
-    'api.product'
+    'api.product',
+    'api.user'
 ]
 
 MIDDLEWARE = [
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,22 +83,22 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ecom',
-        'USER': 'postgres',
-        'PASSWORD': 'Chandra',
-        'HOST': 'localhost'
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'ecom',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Chandra',
+#         'HOST': 'localhost'
+
+#     }
+# }
 
 
 # Password validation
@@ -140,6 +142,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT =os.path.join(BASE_DIR,'media')
 
+AUTH_USER_MODEL="user.CustomUser"
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -150,7 +153,7 @@ REST_FRAMEWORK = {
    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
     ],
    
     'DEFAULT_PERMISSION_CLASSES': [
