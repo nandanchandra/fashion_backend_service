@@ -1,1 +1,0 @@
-# ecom_django_react
