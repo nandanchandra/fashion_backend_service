@@ -12,6 +12,16 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+import json
+
+with open('/home/cncdragneel/githubCnc/fashion_ecom_django_react/config.json') as config_file:
+    config = json.load(config_file)
+
+
+merchant_id = config['merchant_id']
+public_key = config['public_key']
+private_key = config['private_key']
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
