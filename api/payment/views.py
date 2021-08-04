@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.contrib import HttpResponse,JsonResponse
+from django.contrib import JsonResponse
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
 
