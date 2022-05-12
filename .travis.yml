@@ -19,7 +19,7 @@ test:
   - sudo apt-get update -qy
   - sudo apt-get install -y ruby-dev
   - sudo gem install dpl --pre
-  - gem install bundler
+  - sudo gem install bundler
   - yarn install
 
 script:
