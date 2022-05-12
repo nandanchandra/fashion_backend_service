@@ -1,0 +1,36 @@
+sudo: required
+dist: xenial
+services:
+- docker
+python: 3.8
+language: python
+cache: pip
+service:
+  - docker
+
+before_install:
+  - docker build -t produc -f Dockerfile .
+
+install:
+- pip install docker-compose --upgrade
+
+test:
+  script:
+  - sudo apt-get update -qy
+  - sudo apt-get install -y ruby-dev
+  - sudo gem install dpl --pre
+  - gem install bundler
+  - yarn install
+
+script:
+  - docker-compose run web python manage.py test
+
+after_failure:
+  - docker-compose logs
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: 68ca6eae-9c66-4d42-b3b0-403a389f1fd1
+  on:
+    branch: main
