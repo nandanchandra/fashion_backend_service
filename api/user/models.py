@@ -9,11 +9,11 @@ class CustomUser(AbstractUser):
 
     email = models.EmailField(max_length=254, unique=True)
 
-    username = None
+    username = models.CharField(max_length=8,blank=True, null=True )
 
     USERNAME_FIELD = 'email'
 
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
     phone = models.CharField(max_length=20, blank=True, null=True)
 
