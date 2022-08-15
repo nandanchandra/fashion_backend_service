@@ -20,6 +20,7 @@ test:
     - sudo apt-get install -y ruby-dev
     - sudo gem install dpl --pre
     - sudo gem install bundler
+    - sudo gem install faraday-net_http -v 2.1.0
     - yarn install
 
 script:
