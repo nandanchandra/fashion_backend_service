@@ -28,12 +28,9 @@ script:
 after_failure:
   - docker-compose logs
 
-before_deploy:
-  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
-
 deploy:
   provider: heroku
   api_key:
-    secure: 68ca6eae-9c66-4d42-b3b0-403a389f1fd1
+    secure: $HEROKU_API_KEY
   on:
     branch: main
