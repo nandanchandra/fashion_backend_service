@@ -1,7 +1,7 @@
 sudo: required
 dist: xenial
 services:
-- docker
+  - docker
 python: 3.8
 language: python
 cache: pip
@@ -12,21 +12,24 @@ before_install:
   - docker build -t produc -f Dockerfile .
 
 install:
-- pip install docker-compose --upgrade
+  - pip install docker-compose --upgrade
 
 test:
   script:
-  - sudo apt-get update -qy
-  - sudo apt-get install -y ruby-dev
-  - sudo gem install dpl --pre
-  - sudo gem install bundler
-  - yarn install
+    - sudo apt-get update -qy
+    - sudo apt-get install -y ruby-dev
+    - sudo gem install dpl --pre
+    - sudo gem install bundler
+    - yarn install
 
 script:
   - docker-compose run web python manage.py test
 
 after_failure:
   - docker-compose logs
+
+before_deploy:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
 
 deploy:
   provider: heroku
