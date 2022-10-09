@@ -14,12 +14,12 @@ SECRET_KEY = 'django-insecure-=&-k&*9ha^*vzoy^09wm5e+d483i-)3nsm6iac8apb_0g!au8+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fashion-backend-ecom.herokuapp.com']
+ALLOWED_HOSTS = ['<server-config>']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = (
-    'https://fashion-frontend.herokuapp.com',
+    '<server-config>',
 )
 
 # Application definition
