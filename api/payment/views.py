@@ -1,8 +1,8 @@
+import os
+
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
-
-from ecom import settings
 
 import braintree
 
@@ -11,9 +11,9 @@ import braintree
 gateway = braintree.BraintreeGateway(
     braintree.Configuration(
         braintree.Environment.Sandbox,
-        merchant_id=settings.merchant_id,
-        public_key=settings.public_key,
-        private_key=settings.private_key
+        merchant_id=os.environ.get('MERCHANT_ID'),
+        public_key=os.environ.get('PUBLIC_KEY'),
+        private_key=os.environ.get('PRIVATE_KEY')
     )
 )
 
