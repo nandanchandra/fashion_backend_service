@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=&-k&*9ha^*vzoy^09wm5e+d483i-)3nsm6iac8apb_0g!au8+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['fashionbackend.herokuapp.com']
+ALLOWED_HOSTS = ['fashion-backend-ecom.herokuapp.com']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
